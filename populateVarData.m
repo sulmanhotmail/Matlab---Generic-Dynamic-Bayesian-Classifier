@@ -11,7 +11,7 @@
 %           Transition data according to the trajectory
 %           Delta => DELTAT_P / DELTAT_N matrix to edit the transition time
 %           according to the trajectory
-function [Transition,Delta] = populateVarData(Transition,Delta,zones,QuanArray,changeZoneTime)
+function [Transition,Delta] = populateVarData(Transition,Delta,zones,QuanArray,changeZoneTime, flag_random)
 for a=2:1:length(zones)
     curr = a;
     pre = a-1;
@@ -24,7 +24,7 @@ for a=2:1:length(zones)
     end
     % %quantizedTime% = time of trajectory is converted according to the
     % quantization time of all trajectories
-    quantizedTime = find(QuanArray<=changeZoneTime(pre,1),1,'last');
+    quantizedTime = find(QuanArray<=changeZoneTime(1,pre),1,'last');
     % update Transition matrix
     Transition(flag_random,zones(pre,1),zones(curr,1)) = Transition(flag_random,zones(pre,1),zones(curr,1)) + 1;
     % update Delta matrix

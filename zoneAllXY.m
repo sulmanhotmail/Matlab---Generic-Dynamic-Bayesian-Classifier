@@ -3,7 +3,7 @@
 %           Yi => array containing y values
 % @return:  zonesAll => same size of input Xi and gives corresponding zone
 %           numbers to the xy values
-function zonesAll = zoneAllXY(Xi, Yi, ZONE)
+function zonesAll = zoneAllXY(Xi, Yi, NODES)
 % % check if ZONE.mat exists or not in working directory
 % if(exist('CONST_DATA.mat','file') ~= 2)
 %     zoneAll = -1;
@@ -15,7 +15,7 @@ function zonesAll = zoneAllXY(Xi, Yi, ZONE)
     for s=1:1:length(Xi)
         % calling to findZone that calculates zone for just one xy
         % value
-        zonesAll(s,1) = findZone(Xi(s),Yi(s),ZONE);
+        zonesAll(s,1) = findZone(Xi(s),Yi(s),NODES);
     end
 end
 % end
